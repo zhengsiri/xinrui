@@ -1,0 +1,53 @@
+1.
+1-5：ADDDC
+6-10:ACDDC
+2.
+（1）答案1：s+=1/(i*i)
+（2）答案2：max=arr[0]
+（3）答案3：if(*p>max)max=*p
+（4）答案4：str1[i]==str2[i]
+（5）答案5：printf("0\n")
+（6）答案6：str1[i] - str2[i]
+3.
+第5行: while(x==0)while(x!=0)
+第8行: if(y=4)改为if(y==4)
+第15行：int i,k;改为int i,k=0;
+第17行:k=fun(i);改为k+=fun(i);
+4.
+//任务名：08-4 泰勒公式
+//姓名：王佳成
+//班级：6
+//学号：2017011955
+
+#include<stdio.h>
+double fun(double x,int n)
+{
+    int i,j;
+    double sum=1,q=x,m=1;
+    if(n==0)
+        sum=1;
+    else if(n==1)
+        sum+=x;
+    else
+    {
+        sum=1+x;
+        for(i=2;i<=n;i++){
+            q=q*x;
+            for(j=1;j<=i;j++){
+                m=m*j;
+            }
+            sum+=q/m;
+            m=1;
+        }
+    }
+    return sum;
+}
+int main(void)
+{
+    int n;
+    double x;
+    printf("请分别输入x和n的值，用空格隔开：");
+    scanf("%lf %d",&x,&n);
+    printf("%lf\n",fun(x,n));
+    return 0;
+}
